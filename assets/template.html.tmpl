@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}</title>
+    <style>{{.CSS}}</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    {{.HTML}}
+    <script>{{.JS}}</script>
+    {{if .WatchJS}}<script>{{.WatchJS}}</script>{{end}}
+  </body>
+</html>

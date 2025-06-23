@@ -1,4 +1,5 @@
 function optimizeColumnWidths(table) {
+  table.classList.add('laying-out');
   // Set table-layout to auto to allow content-based sizing
   table.style.tableLayout = 'auto';
 
@@ -78,6 +79,7 @@ function optimizeColumnWidths(table) {
   // Finally, set table-layout to fixed to lock in the calculated widths.
   // This prevents the browser from overriding our calculations on window resize.
   table.style.tableLayout = 'fixed';
+  table.classList.remove('laying-out');
 }
 
 function numberRows() {
@@ -224,6 +226,7 @@ function walkTextNodes(node, callback) {
   }
 }
 
+document.querySelector('table').classList.add('laying-out');
 window.addEventListener('load', () => {
   optimizeColumnWidths(document.querySelector('table'));
 });

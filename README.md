@@ -23,8 +23,11 @@ csv2html -help
 # Generate HTML from a CSV file
 cat data.csv | csv2html > data.html
 
-# Generate HTML from a TSV file (tab-separated)
+# Generate HTML from a TSV file (tab-separated).
+# Option 1: infer from -input file name:
 csv2html -input data.tsv > data.html
+# Option 2: specify using -separator arg
+cat data.tsv | csv2html -separator='\t' > data.html
 
 # Watch a file for changes (Web server mode - visible at http://localhost:8282)
 csv2html -input data.csv -serve :8282

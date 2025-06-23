@@ -20,7 +20,7 @@ import (
 
 var (
 	inputFile   = flag.String("input", "", "Input file. If not specified, stdin is used.")
-	separator   = flag.String("separator", "", `CSV separator. Defaults to comma, unless -input has .tsv extension. Use '\t' for tab.`)
+	separator   = flag.String("separator", "", `CSV field separator. Defaults to comma, unless -input has .tsv extension. Use '\t' for tab.`)
 	header      = flag.Bool("header", true, "Use first row as header.")
 	detectLinks = flag.Bool("detect_links", true, "Detect links in cells and wrap them in <a> tags.")
 	lazyQuotes  = flag.Bool("lazy_quotes", false, "If true, a quote may appear in an unquoted field and a non-doubled quote may appear in a quoted field.")

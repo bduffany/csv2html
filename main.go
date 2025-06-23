@@ -122,13 +122,14 @@ func renderTemplate(w io.Writer) error {
 	for _, row := range rows {
 		h.WriteString("<tr>")
 		for _, cell := range row {
+			display := cell
 			h.WriteString("<td>")
 			if *detectLinks {
 				if strings.HasPrefix(cell, "http://") || strings.HasPrefix(cell, "https://") {
-					cell = fmt.Sprintf(`<a href="%s">%s</a>`, cell, cell)
+					display = fmt.Sprintf(`<a href="%s">%s</a>`, cell, display)
 				}
 			}
-			h.WriteString(cell)
+			h.WriteString(display)
 			h.WriteString("</td>")
 		}
 		h.WriteString("</tr>")

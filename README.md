@@ -1,10 +1,11 @@
 # csv2html
 
-Converts CSV data to an interactive HTML table.
+Converts CSV data to an interactive spreadsheet-like HTML UI.
 
 Features:
 
 - Sorting: click column header to sort.
+- Optimized table layout: uses an algorithm to set column widths in a way that maximizes information density.
 - Web server mode: watch a local file for changes and automatically reload it in the browser.
 
 ## Installation

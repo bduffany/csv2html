@@ -23,6 +23,7 @@ var (
 	separator   = flag.String("separator", "", `CSV separator. Defaults to comma, unless -input has .tsv extension. Use '\t' for tab.`)
 	header      = flag.Bool("header", true, "Use first row as header.")
 	detectLinks = flag.Bool("detect_links", true, "Detect links in cells and wrap them in <a> tags.")
+	lazyQuotes  = flag.Bool("lazy_quotes", false, "If true, a quote may appear in an unquoted field and a non-doubled quote may appear in a quoted field.")
 
 	serve = flag.String("serve", "", "Serve the HTML file at the given address instead of writing to stdout.")
 	watch = flag.Bool("watch", true, "In serve mode, watch the input file for changes and re-render the HTML as it changes. Must use -input file path.")
@@ -67,6 +68,7 @@ func renderTemplate(w io.Writer) error {
 	}
 	// Parse input as CSV.
 	csvReader := csv.NewReader(r)
+	csvReader.LazyQuotes = *lazyQuotes
 	comma := ""
 	if *separator == "" && strings.HasSuffix(*inputFile, ".tsv") {
 		comma = "\t"
